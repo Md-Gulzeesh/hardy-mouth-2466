@@ -1,0 +1,40 @@
+.popover {
+    cursor: pointer;
+}
+.chooseLocationText {
+    font-size: 20px;
+    font-weight: 600;
+    color: #4a4a4a;
+}
+
+.searchField {
+    width: 400px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #eaeaea;
+    background-color: #eaeaea;
+    /* padding: 7px 16px; */
+    cursor: pointer;
+    /* transition: all 400ms ease-in-out; */
+}
+/* .searchField:hover{
+    padding: 7px 20px;
+} */
+.categoryDiv,.login,.cart{
+    /* gap: 10px; */
+    font-size: 12px;
+    cursor: pointer;
+        font-size: 12px;
+            color: #000;
+            /* margin: 0 10px; */
+
+}
+.categoryDiv:hover,.login:hover,.cart:hover{
+    color: #D11243;
+}
+.navFooter{
+        background-color: #fff;
+            padding: 25px 121px;
+            height: 80px;
+            justify-content: space-around;
+}
