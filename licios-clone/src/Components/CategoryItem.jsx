@@ -1,9 +1,16 @@
-import { Box, Image, Text } from '@chakra-ui/react'
 import React from 'react'
 
-const CategoryItem = () => {
+const CategoryItem = ({img_url, title}) => {
   return (
-    <div></div>
+    <div className="categoryItem">
+      <span>
+        <img
+          src={img_url}
+          alt={title}
+        />
+      </span>
+      <span>{title}</span>
+    </div>
   );
 }
 
