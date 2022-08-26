@@ -1,11 +1,13 @@
 import React from 'react'
 
-const Button = ({children}) => {
+const Button = ({ children, handleClick }) => {
   return (
     <div>
-        <button className='button'>{children}</button>
+      <button onClick={handleClick} className="custom-btn">
+        {children}
+      </button>
     </div>
-  )
-}
+  );
+};
 
 export default Button

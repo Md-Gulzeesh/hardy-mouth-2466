@@ -5,6 +5,7 @@ import CarouselSection from './Components/CarouselSection';
 import ShopByCategory from './Components/ShopByCategory';
 import LiciousMetaBanner from './Components/LiciousMetaBanner';
 import KnowTheLiciousWay from './Components/KnowTheLiciousWay';
+import BestSellerSection from './Components/BestSellerSection';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <ShopByCategory/>
       <LiciousMetaBanner/>
       <KnowTheLiciousWay/>
+      <BestSellerSection/>
     </div>
   );
 }

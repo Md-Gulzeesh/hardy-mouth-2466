@@ -29,7 +29,7 @@ const KnowTheLiciousWay = () => {
         </div>
       </div>
       <img
-      style={{marginTop:"1rem",borderRadius:"5px"}}
+      style={{marginTop:"1rem",borderRadius:"5px",width:"80%"}}
         src="https://dao54xqhg9jfa.cloudfront.net/OMS-StaticBanner/8a549ef6-cd0a-9d53-6e30-41c4601e3413/original/static-bank-units-Aug-web_(20).jpg?format=webp"
         alt=""
       />

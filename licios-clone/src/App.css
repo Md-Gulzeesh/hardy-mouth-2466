@@ -110,16 +110,6 @@
 .categoryItem > span > img:hover {
   transform: scale(1.1);
 }
-.button{
-    background-color: #d11243;
-        color: #fff;
-        border-radius: 5px;
-        /* height: 35px; */
-        /* width: 14%; */
-        font-size: 12px;
-        border: none;
-        padding: 10px 20px;
-}
 .liciousMetaBanner{
     display:  flex;
     flex-direction: column;
@@ -148,7 +138,6 @@
 }
 .knowTheLiciousWay>h2{
     position: absolute;
-    /* top: 0; */
     left: 39%;
     bottom:30%;
     font-size: 20px;
@@ -170,4 +159,80 @@
     width: 80%;
     text-align: center;
     font-size: 17px;
+}
+/* ******************Best Seller Heading****************** */
+.bestSellerSection{
+  width: 86%;
+  margin: 1.3rem auto;
+}
+.bestSellerHeading{
+      font-size: 22px;
+        color: #4a4a4a;
+        font-weight: 600;
+        padding: 0 2.5rem;
+}
+
+/* ****************Card Component*************** */
+.custom-card-footer{
+  border-top-color: gainsboro;
+  border-top-width: 1px;
+  border-top-style: solid;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+}
+.card-footer-text{
+      font-family: Lato;
+        font-size: 14px;
+        color: #aeaeae;
+        margin-left: 10px;
+}
+.quantity{
+  font-size: 13px;
+  font-weight: 600;
+  margin-right: 10px;
+}
+.counterDiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.counterIcon{
+  font-size: 2rem;
+  color: #d11243;
+  margin: 0 10px;
+  padding: 0;
+  cursor: pointer;
+}
+/* **************Custom Button***************** */
+.custom-btn{
+  background-color: #d11243 !important;
+  border: none !important;
+  font-size: 11px !important;
+    text-transform: uppercase !important;
+    color: #fff !important;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 5px;
+    height: 36px;
+    width: 100px;
+}
+/* ******************Product Carousel Div **********************/
+.ProductCarouselDiv {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-template-rows: auto;
+}
+.ProductCarouselMainDiv{
+  justify-content: baseline;
+  align-items: baseline;
+  margin: 1rem auto;
+}
+.arrows{
+  font-size: 1.7rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
 }
