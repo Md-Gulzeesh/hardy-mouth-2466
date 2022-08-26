@@ -12,6 +12,8 @@ import ExploreByCategorySection from './Components/ExploreByCategorySection';
 import BreakfastSection from './Components/BreakfastSection';
 import BlogSection from './Components/BlogSection';
 import ReviewSection from './Components/ReviewSection';
+import NewsSection from './Components/NewsSection';
+import Footer from './Components/Footer';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
       <BreakfastSection/>
       <BlogSection/>
       <ReviewSection/>
+      <NewsSection/>
+      <Footer/>
     </div>
   );
 }

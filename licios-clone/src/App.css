@@ -399,3 +399,86 @@
         text-overflow: ellipsis;
         height: 34px;
 }
+/* ***************************News Card************************* */
+.newsCardImage{
+      background: #fff;
+        box-shadow: 0 0.79px 3.16px rgb(0 0 0 / 20%);
+        border-radius: 5.52px;
+        width: 100%;
+        height: 160px;
+        object-fit: contain;  
+        margin-top: 3px;
+}
+.newsCardText{
+  margin-top: 8px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #4a4a4a;
+    white-space: normal;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.newsSection{
+  width: 100%;
+    margin: 3rem auto;
+    padding: 1rem;
+}
+.newsCardContainer{
+  width: 80%;
+  margin: auto;
+}
+.newsSectionHeading{
+      margin: 0;
+        font-size: 28px;
+        font-weight: 600;
+        color: #3e4d60;
+        line-height: 3;
+        width: 80%;
+        margin: auto;
+}
+/* *******************Footer********************* */
+.footer{
+  width: 80%;
+  margin: auto;
+}
+.applicationHeading,.footerPara,.usefullLinkHeading,.footerHeading{
+      color: #4a4a4a;
+        font-size: 14px;
+        line-height: 1.8;
+}
+.usefullLinkHeading,.footerHeading{
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.useLink{
+  text-decoration: none;
+      font-size: 14px;
+        line-height: 1.8;
+        color: #4a4a4a;
+}
+.useLink:hover{
+  color: #4a4a4a;
+}
+.citiesLinks{
+  width: 100%;
+  display: flex;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.citiesHeading{
+  color: #4a4a4a;
+  text-transform: uppercase;
+    font-family: Lato;
+    font-weight: 700;
+    font-size: 15px;
+}
+.linksWithBorder{
+      font-size: 13px;
+        display: inline;
+        color: #4a4a4a;
+        font-family: lato;
+        text-decoration: none;
+        padding: 3px 20px;
+        border-right: 1px solid #c2c2c2;
+}

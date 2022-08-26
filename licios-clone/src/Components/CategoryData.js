@@ -386,6 +386,58 @@ export const REVIEWDATA = [
     //     recipe_type:""
     // },
 ]
+export const NEWSDATA = [
+    {
+        id:1,
+        img_url:"https://d2407na1z3fc0t.cloudfront.net/inTheNews/35/inthenews_62aadde78bdae",
+        title:"Licious Is India's First Animal Protein Brand to be Certified With SA8000"
+    },
+    {
+        id:1,
+        img_url:"https://d2407na1z3fc0t.cloudfront.net/inTheNews/36/inthenews_62aadf6e2cbb7",
+        title:"Licious announces continuous liquidity of ESOPs from 2022"
+    },
+    {
+        id:1,
+        img_url:"https://d2407na1z3fc0t.cloudfront.net/inTheNews/37/inthenews_62aae0b741820",
+        title:"Why Licious wants to become the everything store for meat"
+    },
+    {
+        id:1,
+        img_url:"https://d2407na1z3fc0t.cloudfront.net/inTheNews/38/inthenews_62aae10540001",
+        title:"India’s Licious becomes unicorn with $52 million fresh fundraise"
+    },
+    {
+        id:1,
+        img_url:"https://d2407na1z3fc0t.cloudfront.net/inTheNews/39/inthenews_62aae1c5de08e",
+        title:"They slayed COVID, went on to build a unicorn: Meet the founders of Licious"
+    },
+    {
+        id:1,
+        img_url:"https://d2407na1z3fc0t.cloudfront.net/inTheNews/40/inthenews_62aae21e9a38e",
+        title:"Licious founders on building a unicorn startup based on what the consumer wants"
+    },
+    {
+        id:1,
+        img_url:"https://d2407na1z3fc0t.cloudfront.net/inTheNews/40/inthenews_62aae21e9a38e",
+        title:"Licious founders on building a unicorn startup based on what the consumer wants"
+    },
+    {
+        id:1,
+        img_url:"https://d2407na1z3fc0t.cloudfront.net/inTheNews/42/inthenews_62aae2a6d9bc4",
+        title:"Licious wants you to eat more meat"
+    },
+    {
+        id:1,
+        img_url:"https://d2407na1z3fc0t.cloudfront.net/inTheNews/43/inthenews_62aae2dadd8aa",
+        title:"Licious pledges to be ESG compliant in the next 12 months"
+    },
+    {
+        id:1,
+        img_url:"https://d2407na1z3fc0t.cloudfront.net/inTheNews/44/inthenews_62aae32108c39",
+        title:"Online meat startup Licious unveils ads featuring Anil Kapoor, Arjun Kapoor"
+    },
+]
 
 
 
