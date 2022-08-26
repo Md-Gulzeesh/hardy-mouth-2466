@@ -1,5 +1,4 @@
 import React from 'react';
-import CardComponent from './CardComponent';
 import ProductCarousel from './ProductCarousel';
 
 const BestSellerSection = () => {
