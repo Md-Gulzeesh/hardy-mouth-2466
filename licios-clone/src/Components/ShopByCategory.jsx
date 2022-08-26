@@ -8,7 +8,7 @@ const ShopByCategory = () => {
       <h2 className="shopBycat">Shop by categories</h2>
       <div className="shopBycatSubTitle">Freshest meats just for you</div>
       <div className="shopbyCatItemsDiv">{CATEGORYDATA.map(elem => (
-        <CategoryItem {...elem}/>
+        <CategoryItem key={elem.id} {...elem}/>
       ))}</div>
     </div>
   );
