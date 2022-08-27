@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
 // import { FaChevronDown } from "react-icons/fa";
 // import styles from "./NavbarSection.module.css";
 // Bright Gray :#eaeaea
 // Red pink shade:#d11243
 // Peach Orange:#ffdc93
 // Light shade of gray :#f8f8f8
-// import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import NavDropdown from "react-bootstrap/NavDropdown";
 import InputGroup from "react-bootstrap/InputGroup";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Badge from "react-bootstrap/Badge";
+import { useContext } from "react";
+import { AuthContext } from "../Context.jsx/AuthContext";
 
 const NavbarSection = () => {
+  const auth = useContext(AuthContext);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [fix, setFix] = useState(false);
-  const setFixed = ()=>{
-    (window.scrollY > 5)?setFix(true):setFix(false)
-  }
-  window.addEventListener("scroll",setFixed);
+  const setFixed = () => {
+    window.scrollY > 5 ? setFix(true) : setFix(false);
+  };
+  window.addEventListener("scroll", setFixed);
   return (
     <div>
       {/* Navbar Top Section */}
@@ -102,7 +102,7 @@ const NavbarSection = () => {
       </div>
       {/* Navbar Footer Section */}
       <Navbar
-        fixed={fix?"top":""}
+        fixed={fix ? "top" : ""}
         bg="white"
         expand="lg"
         style={{ padding: "25px 0", height: "80px" }}
@@ -181,16 +181,47 @@ const NavbarSection = () => {
                   src="https://www.licious.in/img/rebranding/profile_icon.svg"
                   alt="login"
                 />
-                <span onClick={handleShow} className="navText">
-                  Login
+                <span
+                  onClick={auth.isAuth ? auth.handleLogout : handleShow}
+                  className="navText"
+                >
+                  {auth.isAuth ? "Logout" : "Login"}
                 </span>
                 <Offcanvas show={show} onHide={handleClose} placement="end">
                   <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                    <Offcanvas.Title>
+                      <img
+                        width="133px"
+                        className="mt-3"
+                        src="https://www.licious.in/img/rebranding/logo-white.png"
+                        alt=""
+                      />
+                    </Offcanvas.Title>
                   </Offcanvas.Header>
                   <Offcanvas.Body>
-                    Some text as placeholder. In real life you can have the
-                    elements you have chosen. Like, text, images, lists, etc.
+                    <h3 className="signInSignUpHeading">Sign In/Sign Up</h3>
+                    <div className="loginForm">
+                      <Form>
+                        <Form.Control
+                          type="text"
+                          placeholder="Enter Mobile Number"
+                        />
+                        <Form.Control type="text" placeholder="Enter OTP" />
+
+                        <input
+                          className="proceedBtn mt-2"
+                          type="submit"
+                          value="Proceed Via OTP"
+                        />
+                      </Form>
+                    </div>
+                    <div className="term">
+                      <span>By signing in you agree to our</span>
+                      <Link className="termLink" to="">
+                        {" "}
+                        terms and conditions
+                      </Link>
+                    </div>
                   </Offcanvas.Body>
                 </Offcanvas>
               </div>
