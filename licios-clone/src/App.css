@@ -60,6 +60,12 @@
   font-size: 14px;
   color: #5c5c5c;
 }
+/* **********************Carousel section********* */
+.carousel-indicators button {
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 50% !important;
+}
 /* *************Shop By category***************** */
 .shopBycat {
   font-size: 22px;
@@ -378,107 +384,141 @@
   color: #d11243;
 }
 /* ***************************Review Card*************** */
-.avatarImage{
+.avatarImage {
   width: 30px;
   border-radius: 50%;
 }
-.ReviewCardtopImage{
-    overflow: hidden;
-    border-radius: 10px 10px 0 0;
+.ReviewCardtopImage {
+  overflow: hidden;
+  border-radius: 10px 10px 0 0;
 }
-.recipeImage{
+.recipeImage {
   width: 180%;
   border-radius: 10px 10px 0 0;
 }
-.reviewDescription{
-      font-size: 13px;
-        color: #4a4a4a;
-        line-height: 1.3;
-        max-width: 235px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: 34px;
+.reviewDescription {
+  font-size: 13px;
+  color: #4a4a4a;
+  line-height: 1.3;
+  max-width: 235px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 34px;
 }
 /* ***************************News Card************************* */
-.newsCardImage{
-      background: #fff;
-        box-shadow: 0 0.79px 3.16px rgb(0 0 0 / 20%);
-        border-radius: 5.52px;
-        width: 100%;
-        height: 160px;
-        object-fit: contain;  
-        margin-top: 3px;
-}
-.newsCardText{
-  margin-top: 8px;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    color: #4a4a4a;
-    white-space: normal;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-.newsSection{
+.newsCardImage {
+  background: #fff;
+  box-shadow: 0 0.79px 3.16px rgb(0 0 0 / 20%);
+  border-radius: 5.52px;
   width: 100%;
-    margin: 3rem auto;
-    padding: 1rem;
+  height: 160px;
+  object-fit: contain;
+  margin-top: 3px;
 }
-.newsCardContainer{
+.newsCardText {
+  margin-top: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #4a4a4a;
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.newsSection {
+  width: 100%;
+  margin: 3rem auto;
+  padding: 1rem;
+}
+.newsCardContainer {
   width: 80%;
   margin: auto;
 }
-.newsSectionHeading{
-      margin: 0;
-        font-size: 28px;
-        font-weight: 600;
-        color: #3e4d60;
-        line-height: 3;
-        width: 80%;
-        margin: auto;
+.newsSectionHeading {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 600;
+  color: #3e4d60;
+  line-height: 3;
+  width: 80%;
+  margin: auto;
 }
 /* *******************Footer********************* */
-.footer{
+.footer {
   width: 80%;
   margin: auto;
 }
-.applicationHeading,.footerPara,.usefullLinkHeading,.footerHeading{
-      color: #4a4a4a;
-        font-size: 14px;
-        line-height: 1.8;
+.applicationHeading,
+.footerPara,
+.usefullLinkHeading,
+.footerHeading {
+  color: #4a4a4a;
+  font-size: 14px;
+  line-height: 1.8;
 }
-.usefullLinkHeading,.footerHeading{
-    font-weight: 600;
-    text-transform: uppercase;
+.usefullLinkHeading,
+.footerHeading {
+  font-weight: 600;
+  text-transform: uppercase;
 }
-.useLink{
+.useLink {
   text-decoration: none;
-      font-size: 14px;
-        line-height: 1.8;
-        color: #4a4a4a;
-}
-.useLink:hover{
+  font-size: 14px;
+  line-height: 1.8;
   color: #4a4a4a;
 }
-.citiesLinks{
+.useLink:hover {
+  color: #4a4a4a;
+}
+.citiesLinks,
+.popularSearchLinksSection,
+.spreadSection,
+.chickenSection,
+.muttonSection,
+.fishAndSeafoodSection {
   width: 100%;
   display: flex;
   margin-top: 1rem;
   flex-wrap: wrap;
 }
-.citiesHeading{
+.citiesHeading,
+.exoticMeatSection,
+.popularSearchHeading,
+.spreadSectionHeading,
+.chickenSectionHeading,
+.muttonSectionHeading,
+.fishAndSeafoodSectionHeading {
   color: #4a4a4a;
   text-transform: uppercase;
-    font-family: Lato;
-    font-weight: 700;
-    font-size: 15px;
+  font-family: Lato;
+  font-weight: 700;
+  font-size: 15px;
 }
-.linksWithBorder{
-      font-size: 13px;
-        display: inline;
-        color: #4a4a4a;
-        font-family: lato;
-        text-decoration: none;
-        padding: 3px 20px;
-        border-right: 1px solid #c2c2c2;
+.linksWithBorder {
+  font-size: 13px;
+  display: inline;
+  color: #4a4a4a;
+  font-family: lato;
+  text-decoration: none;
+  padding: 3px 20px;
+  border-right: 1px solid #c2c2c2;
+}
+.linksWithBorder:hover {
+  color: #4a4a4a;
+}
+.faqHeading,.des,.copyrightHeading{
+      font-weight: 600;
+        margin-top: 20px;
+        font-size: 14px;
+} 
+.des{
+      font-weight: 400;
+        line-height: 1.5;
+}
+.copyrightHeading{
+    text-align: center;
+} 
+.copyRightDes{
+      text-align: center;
+        font-size: 13px;
 }

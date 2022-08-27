@@ -109,7 +109,7 @@ const Footer = () => {
       </div>
       <div className="mt-2">
         <h3 className="citiesHeading">Cities we serve</h3>
-        <div className='citiesLinks'>
+        <div className="citiesLinks">
           <Link className="linksWithBorder" to="">
             Bengaluru
           </Link>
@@ -188,8 +188,165 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-      <div className='popularSearch'>
-        <h3 className='popularSearchHeading'>popular Searches</h3>
+      <div className="popularSearch mt-2">
+        <h3 className="popularSearchHeading">popular Searches</h3>
+        <h3 className="exoticMeatSection">EXOTIC MEATS</h3>
+        <div className="popularSearchLinksSection">
+          <Link className="linksWithBorder" to="">
+            Duck - Whole
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Rabbit - Curry Cut
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Japanese Quail
+          </Link>
+        </div>
+      </div>
+      <hr />
+      <div className="spreadSection mt-2">
+        <h3 className="spreadSectionHeading">SPREADS</h3>
+        <div>
+          <Link className="linksWithBorder" to="">
+            Chunky Continental Chicken Spread
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Chunky Butter Chicken Spread
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Chunky Sweet Tamarind Chicken Spread
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Chunky Herby Tomato Chicken Spread
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Chunky Shawarma Chicken Spread
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Chunky Honey-Mustard Chicken Spread
+          </Link>
+        </div>
+      </div>
+      <hr />
+      <div className="chickenSection mt-2">
+        <h3 className="chickenSectionHeading">CHICKEN</h3>
+        <div>
+          <Link className="linksWithBorder" to="">
+            Chicken Curry Cut (Large - 8 to 10 Pieces)
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Chicken Breast - Boneless
+          </Link>
+          <Link className="linksWithBorder" to="">
+            CChicken Drumstick - Skinless
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Tender Spring Chicken Curry Cut
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Chicken Leg (Whole) with Thigh
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Chicken Thigh (Boneless)
+          </Link>
+        </div>
+      </div>
+      <hr />
+      <div className="muttonSection mt-2">
+        <h3 className="muttonSectionHeading">MUTTON</h3>
+        <div>
+          <Link className="linksWithBorder" to="">
+            Goat Boneless
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Goat Mince/Keema
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Premium Lamb Curry Cut
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Goat Shoulder - Curry Cut
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Lamb Boneless
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Goat Curry Cut (Shoulder Chaamp Puth - 11 to 14 pieces)
+          </Link>
+        </div>
+      </div>
+      <hr />
+      <div className="fishAndSeafoodSection mt-2">
+        <h3 className="fishAndSeafoodSectionHeading">FISH & SEAFOOD</h3>
+        <div>
+          <Link className="linksWithBorder" to="">
+            Seer (Surmai) Steaks
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Freshwater Rohu Large - Bengali Cut (w/o Head)
+          </Link>
+          <Link className="linksWithBorder" to="">
+            White Pomfret - (Whole and Cleaned)
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Indian Salmon/Rawas Steaks
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Basa Fillet - (Platinum Grade)
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Prawns Small (Whole)
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Freshwater Rohu - Bengali Cut (Without Head)
+          </Link>
+          <Link className="linksWithBorder" to="">
+            Singara Steaks
+          </Link>
+        </div>
+      </div>
+      <hr />
+      <div className="faq">
+        <h4 className="faqHeading">
+          We will sell only the meat that we would eat ourselves.
+        </h4>
+        <p className="des">
+          At Licious, we’re big meat-lovers. And by big, we mean huge. So when
+          it comes to the meat we put on your plate, we’re extremely picky.
+          Every single product is handpicked by a team with years of experience.
+        </p>
+        <h4 className="faqHeading">If it’s not fresh, we won’t sell it</h4>
+        <p className="des">
+          For meat to stay fresh and retain its natural juices, it needs to be
+          stored at a temperature between 0° and 5°C. We maintain this
+          temperature from the time we procure the product to cleaning, cutting
+          and storing it, until it leaves for delivery. And even when it’s out
+          for delivery, we keep it chilled right up to your doorstep.Did we
+          mention that we’re obsessed?
+        </p>
+        <h4 className="faqHeading">We will charge only for what you buy</h4>
+        <p className="des">
+          Doesn’t everyone do this? Not really. Most other places first weigh
+          the meat, then cut up the pieces, and throw out the parts which aren’t
+          fit to eat, such as offal, gizzard, wingtips, etc. But you still pay
+          based on the original weight even though what you finally get is 10%
+          to 30% less.
+        </p>
+      </div>
+      <hr />
+      <div className="Copyright">
+        <h5 className="copyrightHeading">
+          2022 Delightful Gourmet Pvt Ltd. All Rights Reserved.
+        </h5>
+        <p className="copyRightDes">
+          Licious is your one-stop fresh meat delivery shop. In here, you get
+          nothing but the freshest meat & seafood, delivered straight to your
+          doorstep. Now you can buy meat online anytime at your convenience.
+          Indulge in our diverse selection: Chicken, Mutton, Seafood (Fish,
+          Prawns, Crabs), Marinades & Cold Cuts. All our products are completely
+          natural and healthy. Once you've experienced Licious, you'll never go
+          back to the old way of buying meat and seafood.
+        </p>
       </div>
     </div>
   );
