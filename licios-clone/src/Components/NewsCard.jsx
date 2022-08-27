@@ -1,16 +1,15 @@
 import React from "react";
 
-const NewsCard = () => {
+const NewsCard = ({img_url,title}) => {
   return (
     <div>
       <img
         className="newsCardImage"
-        src="https://d2407na1z3fc0t.cloudfront.net/inTheNews/35/inthenews_62aadde78bdae"
+        src={img_url}
         alt="liciousNews"
       />
       <span className="newsCardText">
-        Licious Is India's First Animal Protein Brand to be Certified With
-        SA8000
+       {title}
       </span>
     </div>
   );
