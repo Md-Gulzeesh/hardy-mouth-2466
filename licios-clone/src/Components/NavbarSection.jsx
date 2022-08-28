@@ -1,33 +1,44 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// import { Link } from "react-router-dom";
-// import { FaChevronDown } from "react-icons/fa";
-// import styles from "./NavbarSection.module.css";
-// Bright Gray :#eaeaea
-// Red pink shade:#d11243
-// Peach Orange:#ffdc93
-// Light shade of gray :#f8f8f8
-// import Button from "react-bootstrap/Button";
+
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-// import NavDropdown from "react-bootstrap/NavDropdown";
 import InputGroup from "react-bootstrap/InputGroup";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Badge from "react-bootstrap/Badge";
+import { useContext } from "react";
+import { AuthContext } from "../Context.jsx/AuthContext";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { DataContext } from "../Context.jsx/DataContext";
 
 const NavbarSection = () => {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const auth = useContext(AuthContext);
+  const dataContext = useContext(DataContext);
   const [fix, setFix] = useState(false);
-  const setFixed = ()=>{
-    (window.scrollY > 5)?setFix(true):setFix(false)
-  }
-  window.addEventListener("scroll",setFixed);
+  const setFixed = () => {
+    window.scrollY > 5 ? setFix(true) : setFix(false);
+  };
+  window.addEventListener("scroll", setFixed);
+
+
   return (
     <div>
+      {/* Toast */}
+      <ToastContainer
+        theme="colored"
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       {/* Navbar Top Section */}
       <div
         // className="navbarTop"
@@ -102,7 +113,7 @@ const NavbarSection = () => {
       </div>
       {/* Navbar Footer Section */}
       <Navbar
-        fixed={fix?"top":""}
+        fixed={fix ? "top" : ""}
         bg="white"
         expand="lg"
         style={{ padding: "25px 0", height: "80px" }}
@@ -181,16 +192,72 @@ const NavbarSection = () => {
                   src="https://www.licious.in/img/rebranding/profile_icon.svg"
                   alt="login"
                 />
-                <span onClick={handleShow} className="navText">
-                  Login
+                <span
+                  onClick={auth.isAuth ? auth.handleLogout : auth.handleShow}
+                  className="navText"
+                >
+                  {auth.isAuth ? "Logout" : "Login"}
                 </span>
-                <Offcanvas show={show} onHide={handleClose} placement="end">
+                <Offcanvas
+                  show={auth.show}
+                  onHide={auth.handleClose}
+                  placement="end"
+                >
                   <Offcanvas.Header closeButton>
-                    <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+                    <Offcanvas.Title>
+                      <img
+                        width="133px"
+                        className="mt-3"
+                        src="https://www.licious.in/img/rebranding/logo-white.png"
+                        alt=""
+                      />
+                    </Offcanvas.Title>
                   </Offcanvas.Header>
                   <Offcanvas.Body>
-                    Some text as placeholder. In real life you can have the
-                    elements you have chosen. Like, text, images, lists, etc.
+                    <h3 className="signInSignUpHeading">Sign In/Sign Up</h3>
+                    <div className="loginForm">
+                      <Form
+                        onSubmit={
+                          auth.OtpBtn ? auth.handleOtpSubmit : auth.handleSubmit
+                        }
+                      >
+                        {auth.OtpBtn ? (
+                          <Form.Control
+                            type="number"
+                            value={auth.Otp}
+                            onChange={auth.handleOtp}
+                            required
+                            placeholder="Enter OTP"
+                          />
+                        ) : (
+                          <Form.Control
+                            type="number"
+                            value={auth.loginData}
+                            onChange={auth.handleChange}
+                            required
+                            placeholder="Enter Mobile Number"
+                          />
+                        )}
+                        <input
+                          onClick={
+                            auth.OtpBtn
+                              ? auth.handleOtpSubmit
+                              : auth.handleSubmit
+                          }
+                          className="proceedBtn mt-2"
+                          type="submit"
+                          value={auth.OtpBtn ? "Enter Otp" : "Proceed Via Otp"}
+                        />
+                      </Form>
+                    </div>
+                    <div className="term">
+                      <span>By signing in you agree to our</span>
+                      <Link className="termLink" to="">
+                        {" "}
+                        terms and conditions
+                      </Link>
+                    </div>
+                    {auth.OtpBtn? <span onClick={auth.getOtp} className="resendOtp">Resend Otp</span>:<></>}
                   </Offcanvas.Body>
                 </Offcanvas>
               </div>
@@ -200,8 +267,11 @@ const NavbarSection = () => {
                   src="https://www.licious.in/img/rebranding/cart_icon.svg"
                   alt="cart"
                 />
-                {/* <Badge bg="danger">9</Badge> */}
-                <span className="cartText">Cart</span>
+                {dataContext.count > 0 ? (
+                  <Badge bg="danger">{dataContext.count}</Badge>
+                ) : (
+                  <span className="cartText">Cart</span>
+                )}
               </div>
             </div>
           </Navbar.Collapse>

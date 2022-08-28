@@ -1,9 +1,20 @@
+:root{
+  --Bright-Gray :#eaeaea;
+  --theme-color:#d11243;
+  --Peach-Orange:#ffdc93;
+  --Light-shade-gray :#f8f8f8;
+  --dark-gray:#4a4a4a;
+  --gray:#b4b4b4;
+  --black:#000;
+  --medium-dark-gray:#5c5c5c;
+  --white:#fff;
+}
 * {
   font-family: Lato, sans-serif !important;
 }
 .link {
   text-decoration: none;
-  color: #4a4a4a;
+  color: var(--dark-gray);
   font-size: 13px;
   margin: 0 15px;
   line-height: 2px;
@@ -13,16 +24,16 @@
   position: absolute;
   height: 5px;
   width: 5px;
-  background: #b4b4b4;
-  border: 1px solid #b4b4b4;
+  background: var(--gray);
+  border: 1px solid var(--gray);
   top: 10px;
   margin: 0 12px;
   border-radius: 50%;
 }
 .select {
-  color: #4a4a4a;
+  color: var(--dark-gray);
   font-size: 13px;
-  background-color: #eaeaea;
+  background-color: var(--Bright-Gray);
   width: 60%;
   border: none;
   outline: none;
@@ -31,35 +42,71 @@
   border: none;
   outline: none;
   font-size: 14px;
-  color: #000;
+  color: var(--black);
   font-weight: 500;
   cursor: pointer;
 }
-/* .navbarTop {
-  display: flex;
-  gap: "15px";
-  background: "#eaeaea";
-  padding: 0 150px;
-  justify-content: space-between;
-}
-@media only screen and (max-width: 1007px) {
-  .navbarTop {
-    display: none;
-  }
-} */
 .navText {
   font-size: 14px;
-  color: #000;
+  color: var(--black);
 }
 .navText:hover,
 .cartText:hover {
-  color: #d11243;
+  color: var(--theme-color);
   cursor: pointer;
 }
 .cartText {
   font-size: 14px;
-  color: #5c5c5c;
+  color: var(--medium-dark-gray);
 }
+/* *******************Login********************* */
+.signInSignUpHeading {
+  font-size: 20px;
+  font-weight: 700;
+}
+.offcanvas-end {
+  background-image: url(https://www.licious.in/img/rebranding/user-login.png);
+}
+.offcanvas-body {
+  /* border: 1px solid red !important;/ */
+  background-color: var(--white);
+  margin: 20px 20px 0 20px;
+  border-radius: 10px 10px 0 0;
+}
+.termLink {
+  color: var(--theme-color);
+  text-decoration: none;
+}
+.termLink:hover {
+  color: var(--theme-color);
+}
+.term {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 14px;
+  font-family: Lato;
+  color: #6d6e71;
+}
+.proceedBtn {
+  background-color: var(--theme-color);
+  width: 100%;
+  font-weight: 600;
+  color: var(--white);
+  border-radius: 5px;
+  height: 45px;
+  border: none;
+  font-size: 18px;
+}
+.resendOtp{
+  color: var(--theme-color);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  margin-left: 0.4rem;
+}
+/* .loginForm{
+} */
 /* **********************Carousel section********* */
 .carousel-indicators button {
   width: 15px !important;
@@ -69,7 +116,7 @@
 /* *************Shop By category***************** */
 .shopBycat {
   font-size: 22px;
-  color: #4a4a4a;
+  color: var(--dark-gray);
   font-weight: 600;
   margin: 15px 0 5px 6px;
 }
@@ -122,7 +169,7 @@
   width: 50%;
   justify-content: space-between;
   margin: auto;
-  background-color: #ffdc93;
+  background-color: var(--Peach-Orange);
   border-radius: 15px;
   background-image: url(https://www.licious.in/img/default/loyalty_banner_background.png);
 }
@@ -147,7 +194,7 @@
   left: 39%;
   bottom: 30%;
   font-size: 20px;
-  color: #d11243;
+  color: var(--theme-color);
   margin-bottom: 5rem;
   background-color: #f7f6f6;
 }
@@ -172,7 +219,7 @@
 }
 .bestSellerHeading {
   font-size: 22px;
-  color: #4a4a4a;
+  color: var(--dark-gray);
   font-weight: 600;
   padding: 0 2.5rem;
 }
@@ -205,18 +252,18 @@
 }
 .counterIcon {
   font-size: 2rem;
-  color: #d11243;
+  color: var(--theme-color);
   margin: 0 10px;
   padding: 0;
   cursor: pointer;
 }
 /* **************Custom Button***************** */
 .custom-btn {
-  background-color: #d11243 !important;
+  background-color: var(--theme-color) !important;
   border: none !important;
   font-size: 11px !important;
   text-transform: uppercase !important;
-  color: #fff !important;
+  color: var(--white) !important;
   padding: 10px 12px;
   cursor: pointer;
   font-weight: 600;
@@ -240,6 +287,9 @@
   font-size: 1.7rem;
   margin: 0 0.5rem;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+  outline: none;
 }
 /* ************************Boneless Cut Section****************** */
 .bonelessCutSection {
@@ -248,7 +298,7 @@
 }
 .bonelessCutSectionHeading {
   font-size: 22px;
-  color: #4a4a4a;
+  color: var(--dark-gray);
   font-weight: 600;
   padding: 0 2.5rem;
 }
@@ -268,30 +318,30 @@
   font-size: 15px;
   font-weight: 700;
   line-height: 1.33;
-  color: #000;
+  color: var(--black);
 }
 .myRewardBannerSubTitle {
   font-size: 13px;
   line-height: 1.38;
-  color: #000;
+  color: var(--black);
 }
 .myRewardBannerLink {
   font-size: 11px;
   font-weight: 700;
-  color: #d11243;
+  color: var(--theme-color);
   text-transform: uppercase;
 }
 .myRewardBannerLink > a {
   text-decoration: none;
-  color: #d11243;
+  color: var(--theme-color);
 }
 .myRewardBannerLink > a:hover {
-  color: #d11243;
+  color: var(--theme-color);
 }
 /* *******************Explore By Category**************** */
 .ExploreBycatHeading {
   font-size: 22px;
-  color: #4a4a4a;
+  color: var(--dark-gray);
   font-weight: 600;
   margin: 15px 0 5px 6px;
 }
@@ -310,7 +360,7 @@
 
 .breakFastSectionHeading {
   font-size: 22px;
-  color: #4a4a4a;
+  color: var(--dark-gray);
   font-weight: 600;
   padding: 0 2.5rem;
 }
@@ -321,7 +371,7 @@
 }
 .blogSectionHeading {
   font-size: 22px;
-  color: #4a4a4a;
+  color: var(--dark-gray);
   font-weight: 600;
   padding: 0.4rem 0;
   display: flex;
@@ -341,19 +391,19 @@
   cursor: pointer;
 }
 .blogTitle {
-  color: #4a4a4a;
+  color: var(--dark-gray);
   font-size: 18px;
   font-weight: 600;
   line-height: 2;
 }
 .blogLink {
-  color: #d11243;
+  color: var(--theme-color);
   font-weight: 600;
   font-size: 13px;
   text-decoration: none;
 }
 .blogLink:hover {
-  color: #d11243;
+  color: var(--theme-color);
 }
 /* **********************Review Section******************** */
 .reviewSection {
@@ -371,17 +421,17 @@
   font-size: 26px;
   font-weight: 900;
   margin-top: 5px;
-  color: #4a4a4a;
+  color:var(--dark-gray);
 }
 .reviewSectionLink {
   text-decoration: none;
-  color: #d11243;
+  color: var(--theme-color);
   font-size: 15px;
   font-weight: 600;
   margin-top: 10px;
 }
 .reviewSectionLink:hover {
-  color: #d11243;
+  color: var(--theme-color);
 }
 /* ***************************Review Card*************** */
 .avatarImage {
@@ -398,7 +448,7 @@
 }
 .reviewDescription {
   font-size: 13px;
-  color: #4a4a4a;
+  color: var(--dark-gray);
   line-height: 1.3;
   max-width: 235px;
   overflow: hidden;
@@ -407,7 +457,7 @@
 }
 /* ***************************News Card************************* */
 .newsCardImage {
-  background: #fff;
+  background: var(--white);
   box-shadow: 0 0.79px 3.16px rgb(0 0 0 / 20%);
   border-radius: 5.52px;
   width: 100%;
@@ -420,7 +470,7 @@
   font-weight: 700;
   font-size: 16px;
   line-height: 19px;
-  color: #4a4a4a;
+  color: var(--dark-gray);
   white-space: normal;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -452,7 +502,7 @@
 .footerPara,
 .usefullLinkHeading,
 .footerHeading {
-  color: #4a4a4a;
+  color: var(--dark-gray);
   font-size: 14px;
   line-height: 1.8;
 }
@@ -465,10 +515,10 @@
   text-decoration: none;
   font-size: 14px;
   line-height: 1.8;
-  color: #4a4a4a;
+  color: var(--dark-gray);
 }
 .useLink:hover {
-  color: #4a4a4a;
+  color: var(--dark-gray);
 }
 .citiesLinks,
 .popularSearchLinksSection,
@@ -488,7 +538,7 @@
 .chickenSectionHeading,
 .muttonSectionHeading,
 .fishAndSeafoodSectionHeading {
-  color: #4a4a4a;
+  color: var(--dark-gray);
   text-transform: uppercase;
   font-family: Lato;
   font-weight: 700;
@@ -497,28 +547,30 @@
 .linksWithBorder {
   font-size: 13px;
   display: inline;
-  color: #4a4a4a;
+  color: var(--dark-gray);
   font-family: lato;
   text-decoration: none;
   padding: 3px 20px;
   border-right: 1px solid #c2c2c2;
 }
 .linksWithBorder:hover {
-  color: #4a4a4a;
+  color: var(--dark-gray);
 }
-.faqHeading,.des,.copyrightHeading{
-      font-weight: 600;
-        margin-top: 20px;
-        font-size: 14px;
-} 
-.des{
-      font-weight: 400;
-        line-height: 1.5;
+.faqHeading,
+.des,
+.copyrightHeading {
+  font-weight: 600;
+  margin-top: 20px;
+  font-size: 14px;
 }
-.copyrightHeading{
-    text-align: center;
-} 
-.copyRightDes{
-      text-align: center;
-        font-size: 13px;
+.des {
+  font-weight: 400;
+  line-height: 1.5;
+}
+.copyrightHeading {
+  text-align: center;
+}
+.copyRightDes {
+  text-align: center;
+  font-size: 13px;
 }

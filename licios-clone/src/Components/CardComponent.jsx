@@ -1,35 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "./Button";
 import { MdAdd, MdRemove } from "react-icons/md";
+import { DataContext } from "../Context.jsx/DataContext";
+import { AuthContext } from "../Context.jsx/AuthContext";
 
-const CardComponent = ({ pieces }) => {
-    const [count, setCount] = useState(1);
-    const [addCart, setAddCart] = useState(false)
-    const handleDecrement = ()=>{    
-            setCount((prev) => prev - 1);
-    }
-    const handleIncrement = ()=>{
-        if(count!==5){
-            setCount(prev => prev +1);
-        }
-    }
-    useEffect(() => {
-      if(count<1){
-        setAddCart(false);
-        setCount(1);
-      }
-    }, [count])
-    
+const CardComponent = ({
+  id,
+  pieces,
+  img_url,
+  title,
+  pcs,
+  net_wt,
+  gross_wt,
+  description,
+  price,
+  deliveryTime,
+  data
+}) => {
+  
+  const dataContext = useContext(DataContext);
+  const auth = useContext(AuthContext)
   return (
     <Card style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}>
-      <Card.Img
-        variant="top"
-        src="https://dao54xqhg9jfa.cloudfront.net/OMS-ProductMerchantdising/868d7848-a22a-11c7-2a90-0833338eeb13/original/Classic-Eggs---Pack-of-6--Hero-Shot.jpg?format=webp"
-      />
+      <Card.Img variant="top" src={img_url} />
       <Card.Body>
-        {/*  MRP:  ADD TO CART 0
-        Today in 90 min */}
         <Card.Title
           className="mt-2"
           style={{
@@ -38,7 +33,7 @@ const CardComponent = ({ pieces }) => {
             color: "#4a4a4a",
           }}
         >
-          Classic Eggs - Pack Of 6
+          {title}
         </Card.Title>
         <Card.Text
           style={{
@@ -48,18 +43,18 @@ const CardComponent = ({ pieces }) => {
           }}
           className="mt-5"
         >
-          Pack of 6 naturally laid, white eggs from healthy hens
+          {description}
         </Card.Text>
         <Card.Subtitle
           className="mb-2 mt-3"
           style={{ fontSize: "14px", color: "#4a4a4a" }}
         >
           {pieces ? (
-            <b>Pieces: 6</b>
+            <b>Pieces: {pcs}</b>
           ) : (
             <>
-              <b className="quantity">Net wt: 450gms</b>
-              <b className="quantity">Gross: 900gms</b>
+              <b className="quantity">Net wt: {net_wt}</b>
+              <b className="quantity">Gross: {gross_wt}</b>
             </>
           )}
         </Card.Subtitle>
@@ -67,11 +62,14 @@ const CardComponent = ({ pieces }) => {
           <span
             style={{ color: "#d11243", fontSize: "18px", fontWeight: "600" }}
           >
-            MRP:₹65{" "}
+            MRP:₹{price}
           </span>
-          {addCart ? (
+          {dataContext.addCart ? (
             <div className="counterDiv">
-              <span className="counterIcon" onClick={handleDecrement}>
+              <span
+                className="counterIcon"
+                onClick={dataContext.handleDecrement}
+              >
                 <MdRemove />
               </span>
               <span
@@ -83,14 +81,25 @@ const CardComponent = ({ pieces }) => {
                   lineHeight: "2",
                 }}
               >
-                {count}
+                {dataContext.count}
               </span>
-              <span className="counterIcon" onClick={handleIncrement}>
+              <span
+                className="counterIcon"
+                onClick={dataContext.handleIncrement}
+              >
                 <MdAdd />
               </span>
             </div>
           ) : (
-            <Button handleClick={() => setAddCart(true)}>Add to cart</Button>
+            <Button
+              handleClick={() => {
+                dataContext.setAddCart(true);
+                auth.successToast("Item Added to cart")
+                dataContext.setCount(1);
+              }}
+            >
+              Add to cart
+            </Button>
           )}
         </div>
         <div className="custom-card-footer">
@@ -101,9 +110,7 @@ const CardComponent = ({ pieces }) => {
             />
           </div>
           <div>
-            <span className="card-footer-text">
-              Today in <b>90 min</b>
-            </span>
+            <span className="card-footer-text">{deliveryTime}</span>
           </div>
         </div>
       </Card.Body>

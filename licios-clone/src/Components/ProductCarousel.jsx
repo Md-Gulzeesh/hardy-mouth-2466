@@ -1,22 +1,39 @@
-import React from 'react'
+// import axios from 'axios';
+// import React, { useEffect, useState } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";import CardComponent from './CardComponent';
 ;
-const ProductCarousel = ({img_url,title,price,description,deliveryTime}) => {
+const ProductCarousel = ({productdata,handlePrev,handleNext,page,lastPage
+}) => {
+ 
+  
   return (
     <div className="d-flex ProductCarouselMainDiv">
-      <div className="arrows">
+      <button disabled={page === 1} className="arrows" onClick={handlePrev}>
         <IoIosArrowBack />
-      </div>
+      </button>
       <div className="ProductCarouselDiv">
-        <CardComponent/>
-        <CardComponent/>
-        <CardComponent/>
+        {productdata.map((item) => (
+          <CardComponent
+            data={item}
+            key={item.id}
+            id={item.id}
+            pieces={item.pcs ? true : false}
+            img_url={item.img_url}
+            title={item.title}
+            pcs={item.pcs}
+            net_wt={item.net_wt}
+            gross_wt={item.gross_wt}
+            description={item.description}
+            price={item.price}
+            deliveryTime={item.deliveryTime}
+          />
+        ))}
       </div>
-      <div className="arrows">
+      <button disabled={page === lastPage} className="arrows" onClick={handleNext}>
         <IoIosArrowForward />
-      </div>
+      </button>
     </div>
   );
-}
+};
 
 export default ProductCarousel
