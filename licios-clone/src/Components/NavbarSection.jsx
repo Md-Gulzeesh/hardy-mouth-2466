@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -41,14 +40,14 @@ const NavbarSection = () => {
       />
       {/* Navbar Top Section */}
       <div
-        // className="navbarTop"
-        style={{
-          display: "flex",
-          gap: "15px",
-          backgroundColor: "#eaeaea",
-          justifyContent: "space-between",
-          padding: "0 150px",
-        }}
+        className="navbarTop"
+        // style={{
+        //   display: "flex",
+        //   gap: "15px",
+        //   backgroundColor: "#eaeaea",
+        //   justifyContent: "space-between",
+        //   padding: "0 150px",
+        // }}
       >
         <div
           style={{
