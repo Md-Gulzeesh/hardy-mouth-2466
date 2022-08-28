@@ -41,7 +41,7 @@ const CardComponent = ({
             color: "#727272",
             lineHeight: "1.2",
           }}
-          className="mt-5"
+          className="my-4 cardDescription"
         >
           {description}
         </Card.Text>
