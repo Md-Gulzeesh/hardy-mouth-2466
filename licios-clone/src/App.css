@@ -59,6 +59,13 @@
   font-size: 14px;
   color: var(--medium-dark-gray);
 }
+.navbarTop{
+    display: flex;
+      gap: 15px;
+      background-color: #eaeaea;
+      justify-content: space-between;
+      padding: 0 150px;
+}
 /* *******************Login********************* */
 .signInSignUpHeading {
   font-size: 20px;
@@ -573,4 +580,66 @@
 .copyRightDes {
   text-align: center;
   font-size: 13px;
+}
+@media only screen and (max-width: 480px) {
+  .navbarTop{
+    display: none;
+  }
+  .useFullLink,.innerUseFullLink,.contactAndPaymentImgSection{
+    /* border: 1px solid red; */
+    flex-direction: column;
+    font-size: 14px;
+  }
+  .knowTheLiciousWay{
+    border: none;
+    flex-direction: column;
+      width: 90%;
+      margin: auto;
+      /* padding: 1.5rem; */
+      /* margin-top: 2rem; */
+      border-radius: 10px;
+      position: relative;
+  }
+  .knowTheLiciousWay>h2{
+    display: none;
+  }
+  .ProductCarouselDiv{
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(1,1fr);
+  }
+  .ProductCarouselMainDiv{
+    width: 100%;
+  }
+  .ExplorebyCatItemsDiv,.shopbyCatItemsDiv{
+    grid-template-columns: repeat(2,1fr);
+  }
+  .ProductCarouselMainDiv{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+  }
+  .newsCardContainer{
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 768px) {
+ .navbarTop{
+  display: none;
+ }
+ .liciousMetaBanner{
+  width: 70%;
+ }
+ .knowTheLiciousWay>h2 {
+  position: absolute;
+  left: 35%;
+  bottom: 56%;
+  font-size: 20px;
+  color: var(--theme-color);
+  margin-bottom: 5rem;
+  background-color: #f7f6f6;
+}
+.newsCardContainer{
+  width: 100%;
+}
 }

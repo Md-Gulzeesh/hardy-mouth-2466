@@ -11,7 +11,7 @@ const Footer = () => {
         />
       </div>
       <div className="useFullLink mt-3 d-flex">
-        <div className="d-flex gap-4">
+        <div className="innerUseFullLink d-flex gap-4">
           <div className="d-flex flex-column">
             <h3 className="usefullLinkHeading">USEFUL LINKS</h3>
             <Link className="useLink" to="">
@@ -66,7 +66,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="d-flex gap-1 px-5">
+        <div className="contactAndPaymentImgSection d-flex gap-1 px-5">
           <div>
             <div>
               <h3 className="footerHeading">CONTACT US</h3>
@@ -107,7 +107,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="mt-2">
+      <div className="citiesSection mt-2">
         <h3 className="citiesHeading">Cities we serve</h3>
         <div className="citiesLinks">
           <Link className="linksWithBorder" to="">
