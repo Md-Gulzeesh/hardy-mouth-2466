@@ -42,7 +42,9 @@ export default function DataContextProvider({ children }) {
       .get(
         `https://stormy-wave-76232.herokuapp.com/BONELESSCUTDATA?_page=${bl_page}&_limit=3`
       )
-      .then((res) => {setBonelessData(res.data)})
+      .then((res) => {
+        setBonelessData(res.data);
+      })
       .catch((err) => console.log("Boneless Section Error", err));
   }, [bl_page]);
 
@@ -82,6 +84,48 @@ export default function DataContextProvider({ children }) {
       setCount(0);
     }
   }, [count]);
+  // **************************Getting Location**********************
+  const [cityname, setCityname] = useState("");
+  const [countryName, setCountryName] = useState("");
+  function gettingLocation() {
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+
+    function success(position) {
+      let crd = position.coords;
+
+      console.log("Your current position is:");
+      console.log(`Latitude : ${crd.latitude}`);
+      console.log(`Longitude: ${crd.longitude}`);
+      console.log(`More or less ${crd.accuracy} meters.`);
+      getDataLocation(crd.latitude, crd.longitude);
+    }
+
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
+  }
+  function getDataLocation(lat, lon) {
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=d11e2713cdace67cd72e441e55b790d4`;
+    fetch(url)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (res) {
+        // append(res);
+        console.log(res);
+        setCityname(res.name);
+        setCountryName(res.sys.country);
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
   return (
     <DataContext.Provider
       value={{
@@ -115,6 +159,9 @@ export default function DataContextProvider({ children }) {
         setAddCart,
         handleDecrement,
         handleIncrement,
+        gettingLocation,
+        cityname,
+        countryName,
       }}
     >
       {children}

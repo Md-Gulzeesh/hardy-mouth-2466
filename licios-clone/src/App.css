@@ -39,12 +39,11 @@
   outline: none;
 }
 .locationSelect {
-  border: none;
-  outline: none;
   font-size: 14px;
   color: var(--black);
   font-weight: 500;
   cursor: pointer;
+  
 }
 .navText {
   font-size: 14px;
