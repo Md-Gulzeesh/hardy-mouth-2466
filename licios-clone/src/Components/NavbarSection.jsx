@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-// Bright Gray :#eaeaea
-// Red pink shade:#d11243
-// Peach Orange:#ffdc93
-// Light shade of gray :#f8f8f8
+
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -15,9 +12,11 @@ import { useContext } from "react";
 import { AuthContext } from "../Context.jsx/AuthContext";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { DataContext } from "../Context.jsx/DataContext";
 
 const NavbarSection = () => {
   const auth = useContext(AuthContext);
+  const dataContext = useContext(DataContext);
   const [fix, setFix] = useState(false);
   const setFixed = () => {
     window.scrollY > 5 ? setFix(true) : setFix(false);
@@ -32,29 +31,6 @@ const NavbarSection = () => {
         theme="colored"
         position="top-center"
         autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      <ToastContainer
-        theme="colored"
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -222,7 +198,11 @@ const NavbarSection = () => {
                 >
                   {auth.isAuth ? "Logout" : "Login"}
                 </span>
-                <Offcanvas show={auth.show} onHide={auth.handleClose} placement="end">
+                <Offcanvas
+                  show={auth.show}
+                  onHide={auth.handleClose}
+                  placement="end"
+                >
                   <Offcanvas.Header closeButton>
                     <Offcanvas.Title>
                       <img
@@ -236,7 +216,11 @@ const NavbarSection = () => {
                   <Offcanvas.Body>
                     <h3 className="signInSignUpHeading">Sign In/Sign Up</h3>
                     <div className="loginForm">
-                      <Form onSubmit={auth.OtpBtn ? auth.handleOtpSubmit : auth.handleSubmit}>
+                      <Form
+                        onSubmit={
+                          auth.OtpBtn ? auth.handleOtpSubmit : auth.handleSubmit
+                        }
+                      >
                         {auth.OtpBtn ? (
                           <Form.Control
                             type="number"
@@ -255,7 +239,11 @@ const NavbarSection = () => {
                           />
                         )}
                         <input
-                          onClick={auth.OtpBtn ? auth.handleOtpSubmit : auth.handleSubmit}
+                          onClick={
+                            auth.OtpBtn
+                              ? auth.handleOtpSubmit
+                              : auth.handleSubmit
+                          }
                           className="proceedBtn mt-2"
                           type="submit"
                           value={auth.OtpBtn ? "Enter Otp" : "Proceed Via Otp"}
@@ -269,6 +257,7 @@ const NavbarSection = () => {
                         terms and conditions
                       </Link>
                     </div>
+                    {auth.OtpBtn? <span onClick={auth.getOtp} className="resendOtp">Resend Otp</span>:<></>}
                   </Offcanvas.Body>
                 </Offcanvas>
               </div>
@@ -278,8 +267,11 @@ const NavbarSection = () => {
                   src="https://www.licious.in/img/rebranding/cart_icon.svg"
                   alt="cart"
                 />
-                {/* <Badge bg="danger">9</Badge> */}
-                <span className="cartText">Cart</span>
+                {dataContext.count > 0 ? (
+                  <Badge bg="danger">{dataContext.count}</Badge>
+                ) : (
+                  <span className="cartText">Cart</span>
+                )}
               </div>
             </div>
           </Navbar.Collapse>

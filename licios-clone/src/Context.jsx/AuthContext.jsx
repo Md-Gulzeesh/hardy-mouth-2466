@@ -18,14 +18,27 @@ export default function AuthContextProvider({ children }) {
   }
   function handleLogout() {
     setIsAuth(false);
+    setOtpBtn(false);
   }
-
   const handleChange = (e) => {
     if (Number(e.target.value[0]) === 0 && Number(e.target.value[1]) === 0) {
       errorToast("Invalid Mobile Number");
     }
     setLoginData(e.target.value.trim());
   };
+  const getOtp = ()=>{
+    setTimeout(()=>{
+      setTimeout(() => {
+        localStorage.removeItem("OTP");
+      }, 8000);
+localStorage.removeItem("OTP");
+let randomOtp = Math.floor(1000 + Math.random() * 9000);
+localStorage.setItem("OTP", randomOtp);
+infoToast(`Otp is ${localStorage.getItem("OTP")} valid for 5 seconds`);
+
+    },2500)
+    
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     if (loginData.trim().length === 0) {
@@ -35,10 +48,11 @@ export default function AuthContextProvider({ children }) {
       errorToast("Invalid Mobile Number");
       return;
     } else {
+      // console.log("RandomOtp in handleSubmit",localStorage.getItem("OTP"))
       setLoginData("");
       setOtpBtn(true);
-      infoToast("OTP is 1234");
-      console.log(loginData);
+       getOtp();
+      // console.log(loginData);
     }
   };
   const handleOtp = (e) => {
@@ -46,10 +60,12 @@ export default function AuthContextProvider({ children }) {
   };
   const handleOtpSubmit = (e) => {
     e.preventDefault();
-    if (Otp.trim() === "1234") {
+    // console.log("Random Otp in handleOtpSubmit",localStorage.getItem("OTP"))
+    if (Otp.trim() === localStorage.getItem("OTP")) {
       successToast("Login Success");
       handleLogin()
       handleClose();
+      localStorage.removeItem("OTP")
     } else {
       errorToast("Invalid OTP");
     }
@@ -110,6 +126,7 @@ export default function AuthContextProvider({ children }) {
         errorToast,
         successToast,
         infoToast,
+        getOtp
       }}
     >
       {children}

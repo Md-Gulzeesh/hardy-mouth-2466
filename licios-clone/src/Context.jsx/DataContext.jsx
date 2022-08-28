@@ -15,17 +15,17 @@ export default function DataContextProvider({ children }) {
       )
       .then((res) => {
         setBestSellerData(res.data);
-        console.log("Best Seller", res.data);
+        // console.log("Best Seller", res.data);
       })
       .catch((err) => console.log("Best Seller Section Error", err));
   }, [bs_page]);
   const handleBsellerPrev = () => {
     setBs_page((prev) => prev - 1);
-    console.log("bsPagePrev", bs_page);
+    // console.log("bsPagePrev", bs_page);
   };
   const handleBsellerNext = () => {
     setBs_page((prev) => prev + 1);
-    console.log("bsPageNxt", bs_page);
+    // console.log("bsPageNxt", bs_page);
   };
   // **********************Boneless Section********************
   const [bonelessData, setBonelessData] = useState([]);
@@ -42,7 +42,7 @@ export default function DataContextProvider({ children }) {
       .get(
         `https://stormy-wave-76232.herokuapp.com/BONELESSCUTDATA?_page=${bl_page}&_limit=3`
       )
-      .then((res) => setBonelessData(res.data))
+      .then((res) => {setBonelessData(res.data)})
       .catch((err) => console.log("Boneless Section Error", err));
   }, [bl_page]);
 
@@ -64,6 +64,24 @@ export default function DataContextProvider({ children }) {
       .then((res) => setBreakFastData(res.data))
       .catch((err) => console.log("BreakFast Section Error", err));
   }, [breakFastPage]);
+
+  // **********************Card Component*************************
+  const [count, setCount] = useState(0);
+  const [addCart, setAddCart] = useState(false);
+  const handleDecrement = () => {
+    setCount((prev) => prev - 1);
+  };
+  const handleIncrement = () => {
+    if (count !== 5) {
+      setCount((prev) => prev + 1);
+    }
+  };
+  useEffect(() => {
+    if (count < 1) {
+      setAddCart(false);
+      setCount(0);
+    }
+  }, [count]);
   return (
     <DataContext.Provider
       value={{
@@ -91,6 +109,12 @@ export default function DataContextProvider({ children }) {
         setBreakFastLastPage,
         handleBfastPrev,
         handleBfastNext,
+        count,
+        setCount,
+        addCart,
+        setAddCart,
+        handleDecrement,
+        handleIncrement,
       }}
     >
       {children}

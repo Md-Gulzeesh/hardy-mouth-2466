@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "./Button";
 import { MdAdd, MdRemove } from "react-icons/md";
+import { DataContext } from "../Context.jsx/DataContext";
+import { AuthContext } from "../Context.jsx/AuthContext";
 
 const CardComponent = ({
+  id,
   pieces,
   img_url,
   title,
@@ -13,24 +16,11 @@ const CardComponent = ({
   description,
   price,
   deliveryTime,
+  data
 }) => {
-  const [count, setCount] = useState(1);
-  const [addCart, setAddCart] = useState(false);
-  const handleDecrement = () => {
-    setCount((prev) => prev - 1);
-  };
-  const handleIncrement = () => {
-    if (count !== 5) {
-      setCount((prev) => prev + 1);
-    }
-  };
-  useEffect(() => {
-    if (count < 1) {
-      setAddCart(false);
-      setCount(1);
-    }
-  }, [count]);
-
+  
+  const dataContext = useContext(DataContext);
+  const auth = useContext(AuthContext)
   return (
     <Card style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px" }}>
       <Card.Img variant="top" src={img_url} />
@@ -74,9 +64,12 @@ const CardComponent = ({
           >
             MRP:₹{price}
           </span>
-          {addCart ? (
+          {dataContext.addCart ? (
             <div className="counterDiv">
-              <span className="counterIcon" onClick={handleDecrement}>
+              <span
+                className="counterIcon"
+                onClick={dataContext.handleDecrement}
+              >
                 <MdRemove />
               </span>
               <span
@@ -88,14 +81,25 @@ const CardComponent = ({
                   lineHeight: "2",
                 }}
               >
-                {count}
+                {dataContext.count}
               </span>
-              <span className="counterIcon" onClick={handleIncrement}>
+              <span
+                className="counterIcon"
+                onClick={dataContext.handleIncrement}
+              >
                 <MdAdd />
               </span>
             </div>
           ) : (
-            <Button handleClick={() => setAddCart(true)}>Add to cart</Button>
+            <Button
+              handleClick={() => {
+                dataContext.setAddCart(true);
+                auth.successToast("Item Added to cart")
+                dataContext.setCount(1);
+              }}
+            >
+              Add to cart
+            </Button>
           )}
         </div>
         <div className="custom-card-footer">

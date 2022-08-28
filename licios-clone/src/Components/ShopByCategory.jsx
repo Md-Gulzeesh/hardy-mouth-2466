@@ -5,7 +5,7 @@ const ShopByCategory = () => {
   const [categoryData, setCategoryData] = useState([]);
   useEffect(() => {
     axios.get("https://stormy-wave-76232.herokuapp.com/CATEGORYDATA").then(res => {
-      console.log(res.data);
+      // console.log(res.data);
       setCategoryData(res.data)
     }).catch(err=> console.log(err));
   

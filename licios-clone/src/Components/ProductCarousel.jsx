@@ -14,7 +14,9 @@ const ProductCarousel = ({productdata,handlePrev,handleNext,page,lastPage
       <div className="ProductCarouselDiv">
         {productdata.map((item) => (
           <CardComponent
+            data={item}
             key={item.id}
+            id={item.id}
             pieces={item.pcs ? true : false}
             img_url={item.img_url}
             title={item.title}
