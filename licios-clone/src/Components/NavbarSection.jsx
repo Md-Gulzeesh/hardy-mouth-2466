@@ -133,7 +133,11 @@ const NavbarSection = () => {
               navbarScroll
             ></Nav>
             {/* Location Section */}
-            <div className="d-flex" style={{ marginRight: "4rem" }}>
+            <div
+              className="d-flex"
+              style={{ marginRight: "4rem" }}
+              onClick={dataContext.gettingLocation}
+            >
               <div>
                 <img
                   width="29px"
@@ -149,11 +153,15 @@ const NavbarSection = () => {
                     margin: "0 0 0 4px",
                   }}
                 >
-                  Delhi
+                  {dataContext.cityname ? dataContext.cityname : "Delhi"}
                 </span>
-                <select className="locationSelect">
-                  <option value="">Delhi,India</option>
-                </select>
+                <span className="locationSelect">
+                  {/* <option value=""> */}
+                    {dataContext.countryName
+                      ? `${dataContext.cityname}, ${dataContext.countryName}`
+                      : "Delhi,India"}
+                  {/* </option> */}
+                </span>
               </div>
             </div>
             {/* Search Section */}
@@ -256,7 +264,13 @@ const NavbarSection = () => {
                         terms and conditions
                       </Link>
                     </div>
-                    {auth.OtpBtn? <span onClick={auth.getOtp} className="resendOtp">Resend Otp</span>:<></>}
+                    {auth.OtpBtn ? (
+                      <span onClick={auth.getOtp} className="resendOtp">
+                        Resend Otp
+                      </span>
+                    ) : (
+                      <></>
+                    )}
                   </Offcanvas.Body>
                 </Offcanvas>
               </div>
