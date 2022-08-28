@@ -13,88 +13,18 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import Badge from "react-bootstrap/Badge";
 import { useContext } from "react";
 import { AuthContext } from "../Context.jsx/AuthContext";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const NavbarSection = () => {
   const auth = useContext(AuthContext);
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const [fix, setFix] = useState(false);
   const setFixed = () => {
     window.scrollY > 5 ? setFix(true) : setFix(false);
   };
   window.addEventListener("scroll", setFixed);
 
-  const [loginData, setLoginData] = useState("");
-  const [Otp, setOtp] = useState("");
-  const [OtpBtn, setOtpBtn] = useState(false);
-  const handleChange = (e) => {
-    if (Number(e.target.value[0]) === 0 && Number(e.target.value[1]) === 0) {
-      errorToast("Invalid Mobile Number");
-    }
-    setLoginData(e.target.value.trim());
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (loginData.trim().length === 0) {
-      errorToast("Please Enter Mobile Number");
-      return;
-    } else if (loginData.length > 10 || loginData.length < 10) {
-      errorToast("Invalid Mobile Number");
-      return;
-    } else {
-      setLoginData("");
-      setOtpBtn(true);
-      infoToast("OTP is 1234");
-      console.log(loginData);
-    }
-  };
-  const handleOtp = (e) => {
-    setOtp(e.target.value.trim());
-  };
-  const handleOtpSubmit = (e) => {
-    e.preventDefault();
-    if (Otp.trim() === "1234") {
-      successToast("Login Success");
-      handleClose();
-    } else {
-      errorToast("Invalid OTP");
-    }
-  };
-  const errorToast = (msg) =>
-    toast.error(msg, {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  const successToast = (msg) => {
-    toast.success(msg, {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
-  const infoToast = (msg) => {
-    toast.info(msg, {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-  };
+
   return (
     <div>
       {/* Toast */}
@@ -287,12 +217,12 @@ const NavbarSection = () => {
                   alt="login"
                 />
                 <span
-                  onClick={auth.isAuth ? auth.handleLogout : handleShow}
+                  onClick={auth.isAuth ? auth.handleLogout : auth.handleShow}
                   className="navText"
                 >
                   {auth.isAuth ? "Logout" : "Login"}
                 </span>
-                <Offcanvas show={show} onHide={handleClose} placement="end">
+                <Offcanvas show={auth.show} onHide={auth.handleClose} placement="end">
                   <Offcanvas.Header closeButton>
                     <Offcanvas.Title>
                       <img
@@ -306,29 +236,29 @@ const NavbarSection = () => {
                   <Offcanvas.Body>
                     <h3 className="signInSignUpHeading">Sign In/Sign Up</h3>
                     <div className="loginForm">
-                      <Form onSubmit={OtpBtn ? handleOtpSubmit : handleSubmit}>
-                        {OtpBtn ? (
+                      <Form onSubmit={auth.OtpBtn ? auth.handleOtpSubmit : auth.handleSubmit}>
+                        {auth.OtpBtn ? (
                           <Form.Control
                             type="number"
-                            value={Otp}
-                            onChange={handleOtp}
+                            value={auth.Otp}
+                            onChange={auth.handleOtp}
                             required
                             placeholder="Enter OTP"
                           />
                         ) : (
                           <Form.Control
                             type="number"
-                            value={loginData}
-                            onChange={handleChange}
+                            value={auth.loginData}
+                            onChange={auth.handleChange}
                             required
                             placeholder="Enter Mobile Number"
                           />
                         )}
                         <input
-                          onClick={OtpBtn ? handleOtpSubmit : handleSubmit}
+                          onClick={auth.OtpBtn ? auth.handleOtpSubmit : auth.handleSubmit}
                           className="proceedBtn mt-2"
                           type="submit"
-                          value={OtpBtn ? "Enter Otp" : "Proceed Via Otp"}
+                          value={auth.OtpBtn ? "Enter Otp" : "Proceed Via Otp"}
                         />
                       </Form>
                     </div>

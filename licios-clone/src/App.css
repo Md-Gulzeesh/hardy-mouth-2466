@@ -280,6 +280,9 @@
   font-size: 1.7rem;
   margin: 0 0.5rem;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
+  outline: none;
 }
 /* ************************Boneless Cut Section****************** */
 .bonelessCutSection {

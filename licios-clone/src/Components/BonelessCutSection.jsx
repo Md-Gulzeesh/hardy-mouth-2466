@@ -1,23 +1,19 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext} from 'react'
+import { DataContext } from '../Context.jsx/DataContext';
 import ProductCarousel from './ProductCarousel'
 
 const BonelessCutSection = () => {
-  const [bonelessData, setBonelessData] = useState([]);
-  const [bl_page, setBl_page] = useState(1)
-  useEffect(() => {
-    axios
-      .get(
-        `https://stormy-wave-76232.herokuapp.com/BONELESSCUTDATA?page=${bl_page}&_limit=3`
-      )
-      .then((res) => setBonelessData(res.data))
-      .catch((err) => console.log("Boneless Section Error",err));
-  }, [bl_page]);
-  
+   const dataContext = useContext(DataContext);
   return (
     <div className="bonelessCutSection">
-      <h2 className='bonelessCutSectionHeading'>Boneless Cuts</h2>
-      <ProductCarousel productdata={bonelessData}/>
+      <h2 className="bonelessCutSectionHeading">Boneless Cuts</h2>
+      <ProductCarousel
+      lastPage ={dataContext.BlesslastPage}
+      page={dataContext.bl_page}
+        handlePrev={dataContext.handleBlessPrev}
+        handleNext={dataContext.handleBlessNext}
+        productdata={dataContext.bonelessData}
+      />
     </div>
   );
 }

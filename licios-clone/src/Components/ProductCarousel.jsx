@@ -2,15 +2,15 @@
 // import React, { useEffect, useState } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";import CardComponent from './CardComponent';
 ;
-const ProductCarousel = ({productdata=[]
+const ProductCarousel = ({productdata,handlePrev,handleNext,page,lastPage
 }) => {
  
   
   return (
     <div className="d-flex ProductCarouselMainDiv">
-      <div className="arrows">
+      <button disabled={page === 1} className="arrows" onClick={handlePrev}>
         <IoIosArrowBack />
-      </div>
+      </button>
       <div className="ProductCarouselDiv">
         {productdata.map((item) => (
           <CardComponent
@@ -27,9 +27,9 @@ const ProductCarousel = ({productdata=[]
           />
         ))}
       </div>
-      <div className="arrows">
+      <button disabled={page === lastPage} className="arrows" onClick={handleNext}>
         <IoIosArrowForward />
-      </div>
+      </button>
     </div>
   );
 };

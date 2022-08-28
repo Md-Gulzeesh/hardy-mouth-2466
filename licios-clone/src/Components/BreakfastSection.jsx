@@ -1,24 +1,22 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import ProductCarousel from './ProductCarousel';
+import React, { useContext } from "react";
+import { DataContext } from "../Context.jsx/DataContext";
+import ProductCarousel from "./ProductCarousel";
 
 const BreakfastSection = () => {
-   const [breakFastData, setBreakFastData] = useState([]);
-   const [breakFastPage, setBreakFastPage] = useState(1);
-   useEffect(() => {
-     axios
-       .get(
-         `https://stormy-wave-76232.herokuapp.com/BREAKFASTDATA?page=${breakFastPage}&_limit=3`
-       )
-       .then((res) => setBreakFastData(res.data))
-       .catch((err) => console.log("BreakFast Section Error",err));
-   }, [breakFastPage]);
+  const dataContext = useContext(DataContext);
+
   return (
     <div className="breakFastSection">
       <h2 className="breakFastSectionHeading">Breakfast & Snacking Specials</h2>
-      <ProductCarousel productdata={breakFastData}/>
+      <ProductCarousel
+        lastPage={dataContext.BreakFastlastPage}
+        page={dataContext.breakFastPage}
+        handlePrev={dataContext.handleBfastPrev}
+        handleNext={dataContext.handleBfastNext}
+        productdata={dataContext.breakFastData}
+      />
     </div>
   );
-}
+};
 
-export default BreakfastSection
+export default BreakfastSection;
